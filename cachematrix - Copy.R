@@ -13,15 +13,14 @@ list(set=set, get=get,
    getmatrix=getmatrix)
 }
 
-cacheSolve <- function(x, ...) {
+cacheSolve <- function(x=matrix(), ...) {
     m<-x$getmatrix()
     if(!is.null(m)){
       message("getting cached data")
       return(m)
     }
-    data<-x$get()
-    m<-solve(data, ...)
+    datos<-x$get()
+    m<-solve(datos, ...)
     x$setmatrix(m)
     m
 }
-
